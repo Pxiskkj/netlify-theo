@@ -959,22 +959,21 @@ var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/ajudeolucasvakinha.netlif
 	
 <script>
 async function gerarPix(valor) {
-  try {
-    const response = await fetch("/.netlify/functions/gerar-pix", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ valor })
-    });
+  const response = await fetch("/.netlify/functions/gerar-pix", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      amount: valor,
+      name: "Doador",
+      document: "00000000000"
+    })
+  });
 
-    const data = await response.json();
+  const data = await response.json();
+  console.log(data);
 
-    if (data.pixCode) {
-      alert("PIX gerado:\n\n" + data.pixCode);
-    } else {
-      alert("Erro:\n" + JSON.stringify(data));
-    }
-  } catch (error) {
-    alert("Erro ao chamar função");
-  }
+  alert("PIX gerado!");
 }
 </script></body></html><!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1756976605 -->
