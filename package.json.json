@@ -1,7 +1,8 @@
 {
-  "name": "pix-site",
+  "name": "netlify-theo",
   "version": "1.0.0",
+  "description": "Site de doação Theo com Pluggou",
   "dependencies": {
-    "node-fetch": "^3.3.2"
+    "node-fetch": "^2.6.7"
   }
 }
