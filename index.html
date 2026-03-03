@@ -969,15 +969,17 @@ async function gerarPix(valor) {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        amount: valor
+        amount: valor,
+        name: "Doador",
+        document: "00000000000"
       })
     });
 
     const data = await response.json();
+    console.log(data);
 
     if (data.error) {
       alert("Erro ao gerar PIX");
-      console.log(data.error);
       return;
     }
 
