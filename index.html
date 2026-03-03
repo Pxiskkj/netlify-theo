@@ -970,6 +970,7 @@ async function gerarPix(valor) {
   });
 
   const data = await response.json();
+  console.log(data);
 
   if (data.error) {
     alert(data.error);
@@ -977,6 +978,5 @@ async function gerarPix(valor) {
   }
 
   alert("PIX gerado com sucesso");
-  console.log(data);
 }
 </script></body></html><!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1756976605 -->
