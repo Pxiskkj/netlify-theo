@@ -381,13 +381,10 @@ document.head.appendChild(a);
 				<div class="elementor-widget-container">
 									<div class="elementor-button-wrapper">
 					<button type="button" class="elementor-button elementor-size-sm"
-   onclick="gerarPix(3000); fbq('track', 'InitiateCheckout');"
+   onclick="gerarPix(3000)"
    style="cursor:pointer;">
-   <span class="elementor-button-content-wrapper">
-      <span class="elementor-button-text">R$ 30,00</span>
-   </span>
+   <span class="elementor-button-text">R$ 30,00</span>
 </button>
-
 				</div>
 								</div>
 				</div>
@@ -395,7 +392,7 @@ document.head.appendChild(a);
 				<div class="elementor-widget-container">
 									<div class="elementor-button-wrapper">
 					<button type="button" class="elementor-button elementor-size-sm"
-   onclick="gerarPix(4000); fbq('track', 'InitiateCheckout');"
+   onclick="gerarPix(4000)"
    style="cursor:pointer;">
    <span class="elementor-button-text">R$ 40,00</span>
 </button>
@@ -408,7 +405,7 @@ document.head.appendChild(a);
 				<div class="elementor-widget-container">
 									<div class="elementor-button-wrapper">
 					<button type="button" class="elementor-button elementor-size-sm"
-   onclick="gerarPix(5000); fbq('track', 'InitiateCheckout');"
+   onclick="gerarPix(5000)"
    style="cursor:pointer;">
    <span class="elementor-button-text">R$ 50,00</span>
 </button>
@@ -419,7 +416,7 @@ document.head.appendChild(a);
 				<div class="elementor-widget-container">
 									<div class="elementor-button-wrapper">
 					<button type="button" class="elementor-button elementor-size-sm"
-   onclick="gerarPix(7000); fbq('track', 'InitiateCheckout');"
+   onclick="gerarPix(7000)"
    style="cursor:pointer;">
    <span class="elementor-button-text">R$ 70,00</span>
 </button>
@@ -432,7 +429,7 @@ document.head.appendChild(a);
 				<div class="elementor-widget-container">
 									<div class="elementor-button-wrapper">
 					<button type="button" class="elementor-button elementor-size-sm"
-   onclick="gerarPix(10000); fbq('track', 'InitiateCheckout');"
+   onclick="gerarPix(10000)"
    style="cursor:pointer;">
    <span class="elementor-button-text">R$ 100,00</span>
 </button>
@@ -443,7 +440,7 @@ document.head.appendChild(a);
 				<div class="elementor-widget-container">
 									<div class="elementor-button-wrapper">
 					<button type="button" class="elementor-button elementor-size-sm"
-   onclick="gerarPix(15000); fbq('track', 'InitiateCheckout');"
+   onclick="gerarPix(150000)"
    style="cursor:pointer;">
    <span class="elementor-button-text">R$ 150,00</span>
 </button>
@@ -456,7 +453,7 @@ document.head.appendChild(a);
 				<div class="elementor-widget-container">
 									<div class="elementor-button-wrapper">
 					<button type="button" class="elementor-button elementor-size-sm"
-   onclick="gerarPix(20000); fbq('track', 'InitiateCheckout');"
+   onclick="gerarPix(20000)"
    style="cursor:pointer;">
    <span class="elementor-button-text">R$ 200,00</span>
 </button>
@@ -467,7 +464,7 @@ document.head.appendChild(a);
 				<div class="elementor-widget-container">
 									<div class="elementor-button-wrapper">
 					<button type="button" class="elementor-button elementor-size-sm"
-   onclick="gerarPix(30000); fbq('track', 'InitiateCheckout');"
+   onclick="gerarPix(300000)"
    style="cursor:pointer;">
    <span class="elementor-button-text">R$ 300,00</span>
 </button>
@@ -480,7 +477,7 @@ document.head.appendChild(a);
 				<div class="elementor-widget-container">
 									<div class="elementor-button-wrapper">
 					<button type="button" class="elementor-button elementor-size-sm"
-   onclick="gerarPix(50000); fbq('track', 'InitiateCheckout');"
+   onclick="gerarPix(50000)"
    style="cursor:pointer;">
    <span class="elementor-button-text">R$ 500,00</span>
 </button>
@@ -491,7 +488,7 @@ document.head.appendChild(a);
 				<div class="elementor-widget-container">
 									<div class="elementor-button-wrapper">
 					<button type="button" class="elementor-button elementor-size-sm"
-   onclick="gerarPix(75000); fbq('track', 'InitiateCheckout');"
+   onclick="gerarPix(75000)"
    style="cursor:pointer;">
    <span class="elementor-button-text">R$ 750,00</span>
 </button>
@@ -504,9 +501,9 @@ document.head.appendChild(a);
 				<div class="elementor-widget-container">
 									<div class="elementor-button-wrapper">
 					<button type="button" class="elementor-button elementor-size-sm"
-   onclick="gerarPix(100000); fbq('track', 'InitiateCheckout');"
+   onclick="gerarPix(10000)"
    style="cursor:pointer;">
-   <span class="elementor-button-text">R$ 1.000,00</span>
+   <span class="elementor-button-text">R$ 1;000,00</span>
 </button>
 										<div id="pix-area" style="margin-top:20px; display:none;">
   <img id="qr-code" width="200" />
@@ -962,34 +959,27 @@ var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/ajudeolucasvakinha.netlif
 	
 <script>
 async function gerarPix(valor) {
-  try {
-    const response = await fetch("/.netlify/functions/gerar-pix", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        amount: valor,
-        name: "Doador",
-        document: "00000000000"
-      })
-    });
 
-    const data = await response.json();
-    console.log(data);
+  const response = await fetch("/.netlify/functions/gerar-pix", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      amount: valor,
+      name: "Doador",
+      document: "00000000000"
+    })
+  });
 
-    if (data.error) {
-      alert("Erro ao gerar PIX");
-      return;
-    }
+  const data = await response.json();
 
-    document.getElementById("pix-area").style.display = "block";
-    document.getElementById("qr-code").src = data.qr_code;
-    document.getElementById("pix-code").value = data.pix_code;
-
-  } catch (error) {
-    console.log(error);
-    alert("Erro na requisição");
+  if (data.error) {
+    alert(data.error);
+    return;
   }
+
+  alert("PIX gerado com sucesso");
+  console.log(data);
 }
 </script></body></html><!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1756976605 -->
