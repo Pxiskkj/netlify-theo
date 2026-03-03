@@ -962,15 +962,21 @@ var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/ajudeolucasvakinha.netlif
 	
 <script>
 async function gerarPix(valor) {
-  const response = await fetch("/.netlify/functions/gerar-pix", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ amount: valor })
-  });
+  try {
+    const response = await fetch("/.netlify/functions/gerar-pix", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ amount: valor })
+    });
 
-  const data = await response.json();
-  console.log(data); // 👈 IMPORTANTE
+    const data = await response.json();
 
-  document.getElementById("pix-area").style.display = "block";
+    console.log("RETORNO COMPLETO:", data); // 👈 IMPORTANTE
+
+    document.getElementById("pix-area").style.display = "block";
+
+  } catch (error) {
+    console.error(error);
+  }
 }
 </script></body></html><!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1756976605 -->
