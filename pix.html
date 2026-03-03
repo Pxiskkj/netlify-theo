@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pague com PIX</title>
+</head>
+<body>
+
+<h2>Escaneie o QR Code</h2>
+
+<img id="qrcode" width="250" />
+
+<h3>Ou copie o código:</h3>
+<textarea id="copiaecola" rows="5" cols="40"></textarea>
+
+<script>
+const pixData = JSON.parse(localStorage.getItem("pixData"));
+
+if (pixData) {
+  // AJUSTE AQUI CONFORME O RETORNO DA PLUGGOU
+  document.getElementById("qrcode").src = pixData.qr_code;
+  document.getElementById("copiaecola").value = pixData.pix_code;
+}
+</script>
+
+</body>
+</html>
